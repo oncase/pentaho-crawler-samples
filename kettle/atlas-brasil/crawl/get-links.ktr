@@ -434,6 +434,90 @@
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>Gets page html and prepares for XPath parsing                                                        &#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;</note>
+      <xloc>16</xloc>
+      <yloc>16</yloc>
+      <width>818</width>
+      <heigth>160</heigth>
+      <fontname>CourierNewPSMT</fontname>
+      <fontsize>13</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>230</backgroundcolorred>
+      <backgroundcolorgreen>230</backgroundcolorgreen>
+      <backgroundcolorblue>230</backgroundcolorblue>
+      <bordercolorred>255</bordercolorred>
+      <bordercolorgreen>255</bordercolorgreen>
+      <bordercolorblue>255</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Splits important HTML code into rows&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;</note>
+      <xloc>848</xloc>
+      <yloc>16</yloc>
+      <width>298</width>
+      <heigth>160</heigth>
+      <fontname>CourierNewPSMT</fontname>
+      <fontsize>13</fontsize>
+      <fontbold>Y</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>255</fontcolorred>
+      <fontcolorgreen>255</fontcolorgreen>
+      <fontcolorblue>255</fontcolorblue>
+      <backgroundcolorred>59</backgroundcolorred>
+      <backgroundcolorgreen>153</backgroundcolorgreen>
+      <backgroundcolorblue>252</backgroundcolorblue>
+      <bordercolorred>255</bordercolorred>
+      <bordercolorgreen>255</bordercolorgreen>
+      <bordercolorblue>255</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;    Adjusts URL to the right titles</note>
+      <xloc>848</xloc>
+      <yloc>192</yloc>
+      <width>290</width>
+      <heigth>160</heigth>
+      <fontname>CourierNewPSMT</fontname>
+      <fontsize>13</fontsize>
+      <fontbold>Y</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>255</fontcolorred>
+      <fontcolorgreen>255</fontcolorgreen>
+      <fontcolorblue>255</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>102</backgroundcolorgreen>
+      <backgroundcolorblue>102</backgroundcolorblue>
+      <bordercolorred>255</bordercolorred>
+      <bordercolorgreen>255</bordercolorgreen>
+      <bordercolorblue>255</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;Filters stream to leave only important files and prepares filenames and URL to download              </note>
+      <xloc>16</xloc>
+      <yloc>192</yloc>
+      <width>818</width>
+      <heigth>160</heigth>
+      <fontname>CourierNewPSMT</fontname>
+      <fontsize>13</fontsize>
+      <fontbold>Y</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>204</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>102</backgroundcolorblue>
+      <bordercolorred>255</bordercolorred>
+      <bordercolorgreen>255</bordercolorgreen>
+      <bordercolorblue>255</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <order>
     <hop>
@@ -467,18 +551,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>one field only</from>
-      <to>log</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>page data</from>
+      <from>split to rows</from>
       <to>project</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>log</from>
-      <to>page data</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -488,7 +562,7 @@
     </hop>
     <hop>
       <from>Analytic Query</from>
-      <to>User Defined Java Expression</to>
+      <to>gets right link</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -497,7 +571,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>User Defined Java Expression</from>
+      <from>gets right link</from>
       <to>Filter rows</to>
       <enabled>Y</enabled>
     </hop>
@@ -519,6 +593,11 @@
     <hop>
       <from>empty</from>
       <to>send to download process</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>one field only</from>
+      <to>split to rows</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -552,7 +631,7 @@
     </remotesteps>
     <GUI>
       <xloc>1056</xloc>
-      <yloc>160</yloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -587,13 +666,13 @@
     </remotesteps>
     <GUI>
       <xloc>736</xloc>
-      <yloc>160</yloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
 
   <step>
-    <name>User Defined Java Expression</name>
+    <name>gets right link</name>
     <type>Janino</type>
     <description/>
     <distribute>Y</distribute>
@@ -619,7 +698,46 @@
     </remotesteps>
     <GUI>
       <xloc>896</xloc>
-      <yloc>160</yloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>empty</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>empty</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>224</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -657,7 +775,7 @@
     </remotesteps>
     <GUI>
       <xloc>320</xloc>
-      <yloc>160</yloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -695,7 +813,7 @@
     </remotesteps>
     <GUI>
       <xloc>640</xloc>
-      <yloc>32</yloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -733,7 +851,7 @@
     </remotesteps>
     <GUI>
       <xloc>512</xloc>
-      <yloc>32</yloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -771,7 +889,7 @@
     </remotesteps>
     <GUI>
       <xloc>576</xloc>
-      <yloc>160</yloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -819,7 +937,7 @@
     </remotesteps>
     <GUI>
       <xloc>128</xloc>
-      <yloc>32</yloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -857,7 +975,7 @@
     </remotesteps>
     <GUI>
       <xloc>240</xloc>
-      <yloc>32</yloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -895,39 +1013,7 @@
     </remotesteps>
     <GUI>
       <xloc>384</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>log</name>
-    <type>WriteToLog</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-      <loglevel>log_level_basic</loglevel>
-      <displayHeader>Y</displayHeader>
-      <limitRows>N</limitRows>
-      <limitRowsNumber>0</limitRowsNumber>
-      <logmessage/>
-    <fields>
-      </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>864</xloc>
-      <yloc>32</yloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -954,14 +1040,67 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
-      <yloc>32</yloc>
+      <xloc>752</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
 
   <step>
-    <name>page data</name>
+    <name>project</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>      <field>        <name>a</name>
+      </field>      <field>        <name>td</name>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1056</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>send to download process</name>
+    <type>RowsToResult</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>96</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+    </step>
+
+  <step>
+    <name>split to rows</name>
     <type>getXMLData</type>
     <description/>
     <distribute>Y</distribute>
@@ -1045,61 +1184,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>944</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>project</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>      <field>        <name>a</name>
-      </field>      <field>        <name>td</name>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1056</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>send to download process</name>
-    <type>RowsToResult</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>96</xloc>
-      <yloc>160</yloc>
+      <xloc>928</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1128,7 +1214,7 @@
     </remotesteps>
     <GUI>
       <xloc>448</xloc>
-      <yloc>160</yloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
@@ -1180,46 +1266,7 @@
     </remotesteps>
     <GUI>
       <xloc>32</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-    </GUI>
-    </step>
-
-  <step>
-    <name>empty</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>empty</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>224</xloc>
-      <yloc>160</yloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
