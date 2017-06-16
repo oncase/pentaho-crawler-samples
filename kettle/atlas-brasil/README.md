@@ -28,6 +28,15 @@ atlas2013_dadosbrutos_pt.BR 91-00-10.csv
 
 The `config.json` file can have as many sources as we want, as long as the file is a XLSX and the listed sheets start at `0, 0` index - even though these limitations could be generalized within the process.
 
+```json
+[{
+  "title": "Source 01",
+  "sheets": []
+},{
+  "title": "Source 02",
+  "sheets": []
+}]
+
 For other extensions, we could check the file extension and implement a parser.
 
 For different start indexes, we could externalize this to the config file.
