@@ -1,4 +1,7 @@
 [{
     "title": "Atlas dos Municípios",
     "sheets": [ "MUN 91-00-10", "BR 91-00-10", "UF 91-00-10" ]
+},{
+    "title": "Radar IDHM (PNADS 2011-2014)",
+    "sheets": [ "Dados" ]
 }]
